@@ -35,12 +35,12 @@ label {
 .product-list {
 	display: flex;
 	flex-wrap: wrap;
-	gap: 20px;
+	gap: 10px;
 }
 
 .product-card {
 	box-sizing: border-box;
-	width: 190px;
+	width: 32%;
 	height: 300px;
 	padding: 20px;
 	border-radius: 8px;
