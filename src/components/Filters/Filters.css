@@ -58,3 +58,13 @@ h3 {
 img {
 	scale: 1.5;
 }
+@media (max-width: 1010px) {
+	.shop {
+		width: 615px;
+	}
+}
+@media (max-width: 725px) {
+	.shop {
+		width: 390px;
+	}
+}
