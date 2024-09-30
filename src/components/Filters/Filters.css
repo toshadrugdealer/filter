@@ -1,0 +1,51 @@
+h4 {
+	margin: 10px 0;
+}
+input {
+	margin-right: 5px;
+}
+label {
+	cursor: pointer;
+}
+.shop {
+	display: flex;
+	width: 100vh;
+	min-height: 20vh;
+	margin: 0 auto;
+}
+
+.filter-section {
+	width: 20%;
+}
+.filter-section div {
+	display: flex;
+	flex-direction: column;
+	text-align: start;
+}
+
+.product-list {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 20px;
+	width: 80%;
+}
+
+.product-card {
+	box-sizing: border-box;
+	width: 200px;
+	height: 300px;
+	padding: 20px;
+	border: 2px solid #ccc;
+	border-radius: 8px;
+}
+
+.product-card h3 {
+	font-size: 16px;
+}
+.product-info p,
+h3 {
+	margin: 0;
+}
+img {
+	scale: 1.5;
+}
