@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import './Filters.css'
 
-const Filter = ({ brands, categories, onFilterChange }) => {
+const Filter = ({ brands, categories, onFilterChange, availableBrands }) => {
 	const [selectedBrands, setSelectedBrands] = useState([])
 	const [selectedCategories, setSelectedCategories] = useState([])
 	const [priceRange, setPriceRange] = useState([150, 1500])
@@ -54,6 +54,7 @@ const Filter = ({ brands, categories, onFilterChange }) => {
 							type='checkbox'
 							onChange={() => handleBrandChange(brand)}
 							checked={selectedBrands.includes(brand)}
+							disabled={!availableBrands.includes(brand)}
 						/>
 						{brand}
 					</label>

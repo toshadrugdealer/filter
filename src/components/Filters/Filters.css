@@ -68,3 +68,12 @@ img {
 		width: 390px;
 	}
 }
+input:disabled {
+	cursor: not-allowed;
+	opacity: 0.3;
+}
+label:has(input:disabled) {
+	color: rgb(63, 63, 63);
+	opacity: 0.3;
+	cursor: not-allowed;
+}
