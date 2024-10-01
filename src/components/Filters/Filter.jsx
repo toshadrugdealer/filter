@@ -43,6 +43,12 @@ const Filter = ({ brands, categories, onFilterChange, availableBrands }) => {
 		inStockOnly,
 		onFilterChange
 	])
+	const handleResetFilters = () => {
+		setSelectedBrands([])
+		setSelectedCategories([])
+		setPriceRange([150, 1500])
+		setInStockOnly(false)
+	}
 
 	return (
 		<div className='filter-section'>
@@ -95,6 +101,7 @@ const Filter = ({ brands, categories, onFilterChange, availableBrands }) => {
 					В наличии
 				</label>
 			</div>
+			<button onClick={handleResetFilters}>Cброс фильтра</button>
 		</div>
 	)
 }

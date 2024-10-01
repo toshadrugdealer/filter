@@ -77,3 +77,9 @@ label:has(input:disabled) {
 	opacity: 0.3;
 	cursor: not-allowed;
 }
+button {
+	margin-top: 10px;
+	width: 100%;
+	cursor: pointer;
+	font-size: 16px;
+}
