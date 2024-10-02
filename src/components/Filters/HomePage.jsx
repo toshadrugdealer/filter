@@ -1,4 +1,4 @@
-import { useState, useCallback, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import Filter from './Filter'
 import './Filters.css'
 import { products } from './products'
@@ -45,13 +45,27 @@ const HomePage = () => {
 
 		setFilteredProducts(filtered)
 
-		// Обновляем доступные фильтры на основе отфильтрованных продуктов
-		const newAvailableFilters = calculateAvailableFilters(filtered)
-		setAvailableFilters(newAvailableFilters)
+		const availableCategories = new Set()
+		filtered.forEach(product => availableCategories.add(product.category))
+
+		const availableBrands = new Set()
+		if (selectedCategories.length > 0) {
+			filtered.forEach(product => {
+				if (selectedCategories.includes(product.category)) {
+					availableBrands.add(product.brand)
+				}
+			})
+		} else {
+			filtered.forEach(product => availableBrands.add(product.brand))
+		}
+
+		setAvailableFilters({
+			availableBrands: Array.from(availableBrands),
+			availableCategories: Array.from(availableCategories)
+		})
 	}, [])
 
 	useEffect(() => {
-		// Изначально все категории и бренды доступны
 		const initialFilters = calculateAvailableFilters(products)
 		setAvailableFilters(initialFilters)
 	}, [])

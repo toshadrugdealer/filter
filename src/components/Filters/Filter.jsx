@@ -1,7 +1,12 @@
 import { useState, useEffect } from 'react'
-import './Filters.css'
 
-const Filter = ({ brands, categories, onFilterChange, availableBrands }) => {
+const Filter = ({
+	brands,
+	categories,
+	onFilterChange,
+	availableBrands,
+	availableCategories
+}) => {
 	const [selectedBrands, setSelectedBrands] = useState([])
 	const [selectedCategories, setSelectedCategories] = useState([])
 	const [priceRange, setPriceRange] = useState([150, 1500])
@@ -36,13 +41,8 @@ const Filter = ({ brands, categories, onFilterChange, availableBrands }) => {
 			priceRange,
 			inStockOnly
 		})
-	}, [
-		selectedBrands,
-		selectedCategories,
-		priceRange,
-		inStockOnly,
-		onFilterChange
-	])
+	}, [selectedBrands, selectedCategories, priceRange, inStockOnly])
+
 	const handleResetFilters = () => {
 		setSelectedBrands([])
 		setSelectedCategories([])
@@ -60,7 +60,10 @@ const Filter = ({ brands, categories, onFilterChange, availableBrands }) => {
 							type='checkbox'
 							onChange={() => handleBrandChange(brand)}
 							checked={selectedBrands.includes(brand)}
-							disabled={!availableBrands.includes(brand)}
+							disabled={
+								selectedCategories.length > 0 &&
+								!availableBrands.includes(brand)
+							}
 						/>
 						{brand}
 					</label>
@@ -74,6 +77,7 @@ const Filter = ({ brands, categories, onFilterChange, availableBrands }) => {
 							type='checkbox'
 							onChange={() => handleCategoryChange(category)}
 							checked={selectedCategories.includes(category)}
+							disabled={!availableCategories.includes(category)}
 						/>
 						{category}
 					</label>
